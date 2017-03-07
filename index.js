@@ -12,7 +12,7 @@ var app = express();
 // 设置模板目录
 app.set('views', path.join(__dirname, 'views'));
 // 设置模板引擎为 ejs
-app.set('view engine', 'ejs');
+app.set('view engine', 'pug');
 
 // 设置静态文件目录
 app.use(express.static(path.join(__dirname, 'public')));
