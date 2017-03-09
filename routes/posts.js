@@ -9,7 +9,8 @@ var checkLogin = require("../middlewares/check").checkLogin;
 //GET /posts所有用户或者特定用户的文章页
 //eq:GET /posts?author=xxx
 router.get("/",function (req,res,next) {
-    res.send(req.flash());
+    //res.send(req.flash());
+    res.render('posts');
 });
 
 router.post("/",checkLogin,function (req,res,next) {
