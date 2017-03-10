@@ -1,13 +1,12 @@
 //
    Created by lwy on 2017-03-08
--var temp = {user}
 
 div.nav-setting
     div(class='ui floating dropdown button')
         i(class='icon bars')
         div.menu
-            if temp
-                a(class='item' href='/posts?author=#{user._id}')
+            if user
+                a(class='item' href=`/posts?author=${user._id}`)
                 div(class='divider')
                 a(class='item' href='/posts/create') 发表文章
                 a(class='item' href='/signout') 登出

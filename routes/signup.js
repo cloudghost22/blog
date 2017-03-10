@@ -21,6 +21,7 @@ router.post('/', checkNotLogin, function(req, res, next) {
     var avatar = req.files.avatar.path.split(path.sep).pop();
     var password = req.fields.password;
     var repassword = req.fields.repassword;
+    console.log(req);
 
     // 校验参数
     try {
