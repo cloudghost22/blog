@@ -1,13 +1,13 @@
 //
    Created by lwy on 2017-03-08.
-block notification
-    div(class='ui grid')
-        div(class='four wide column')
-        div(class='eight wide column')
-            if #{success}
-                div(class='ui success message')
-                    p #{success}
-            if #{error}
-                div(class='ui error message')
-                    p #{error}
+
+div(class='ui grid')
+    div(class='four wide column')
+    div(class='eight wide column')
+        if success
+            div(class='ui success message')
+                p #{success}
+        else if error
+            div(class='ui error message')
+                p #{error}
 

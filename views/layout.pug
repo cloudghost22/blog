@@ -11,8 +11,8 @@ html
         script(src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js")
         script(src="//cdn.bootcss.com/semantic-ui/2.1.8/semantic.min.js")
     body
-        block nav
-        block nav-setting
-        block notification
+        include ./nav
+        include ./nav-setting
+        include ./notification
         block content
-        block footer
+        include ./footer
