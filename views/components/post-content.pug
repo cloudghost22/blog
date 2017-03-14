@@ -1,0 +1,30 @@
+div(class='post-content')
+    div(class='ui grid')
+        div(class='four wide column')
+            a(class='avatar'
+            href=`/posts/?author=${post.author._id}`
+            data-title=`${post.author.name}`
+            data-content=`${post.author.bio}`
+            )
+                img(class='avatar' src=`/images/${post.author.avatar}`)
+
+        div(class='eight wide column')
+            div(class='ui segment')
+                h3
+                    a(href=`/posts/${post._id}`) #{post.title}
+                pre !#{post.content}
+                div
+                    span(class='tag') #{post.created_at}
+                    span(class='tag right')
+                        span 浏览#{post.pv}
+                        span 留言#{post.commentsCount}
+
+                        if user && post.author._id && user._id.toString() === post.author._id.toString()
+                            div(class='ui inline dropdown')
+                                div(class='text')
+                                i(class='dropdown icon')
+                                div(class='menu')
+                                    div(class='item')
+                                        a(href=`/posts/${post._id}/edit`) 编辑
+                                    div(class='item')
+                                        a(href=`/posts/${post._id}/remove`) 删除

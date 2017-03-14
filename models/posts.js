@@ -32,7 +32,7 @@ module.exports = {
             .findOne({ _id: postId })
             .populate({ path: 'author', model: 'User' })
             .addCreatedAt()
-            .contentToHtml()
+            //.contentToHtml()
             .exec();
     },
 
@@ -56,6 +56,28 @@ module.exports = {
         return Post
             .update({ _id: postId }, { $inc: { pv: 1 } })
             .exec();
+    },
+
+    // 通过文章 id 获取一篇原生文章（编辑文章）
+    getRawPostById:function getRawPostById(postId) {
+        return Post
+            .findOne({_id:postId})
+            .populate({path:'autor',model:'User'})
+            .exec();
+    },
+
+    // 通过用户 id 和文章 id 更新一篇文章
+    updatePostById:function updatePostById(postId,author,data) {
+        return Post.update({
+            author:author,_id:postId
+        },{
+            $set:data
+        })
+            .exec();
+    },
+    // 通过用户 id 和文章 id 删除一篇文章
+    delPostById:function delPostById(postId,author) {
+        return Post.remove({author:author,_id:postId}).exec();
     }
 };
 
