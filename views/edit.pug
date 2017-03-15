@@ -1,0 +1,22 @@
+extends layout
+block content
+    div(class='ui grid')
+        div(class='four wide column')
+            a(
+            class='avatar'
+            href=`/post/?author=${user._id}`
+            data-title=`${user.name} | ${user.gender}`
+            )
+                img(class='avatar' src=`/images/${user.avatar}`)
+
+    div(class='eight wide column')
+        form(class='ui form segment' method='post' action=`/posts/${post._id}/edit`)
+            div(class='field required')
+                label 标题
+                input(type='text' name='title' value=`${post.title}`)
+
+            div(class='field required')
+                label 内容
+                textarea(name='content' rows='15') #{post.content}
+
+            input(type='submit' class='ui button' value='发布')
